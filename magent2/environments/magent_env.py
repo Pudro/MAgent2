@@ -165,7 +165,9 @@ class magent_parallel_env(ParallelEnv):
         self.frames = 0
         self.team_sizes = [self.env.get_num(handle) for handle in self.handles]
         self.generate_map()
-        return self._compute_observations()
+        obs = self._compute_observations()
+        infos = {agent: {} for agent in self.possible_agents if agent in self.agents}
+        return obs, infos
 
     def _compute_observations(self):
         observes = [None] * self.max_num_agents
