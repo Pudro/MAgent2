@@ -332,6 +332,6 @@ class Renderer:
             pygame.display.flip()
         return (
             np.transpose(new_observation, axes=(1, 0, 2))
-            if mode == "rgb_array"
-            else None
+            # if mode == "rgb_array"
+            # else None
         )
